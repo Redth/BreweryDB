@@ -18,7 +18,7 @@ Task ("NuGetPack")
 	NuGetPack ("./BreweryDB.nuspec", new NuGetPackSettings { 
 		Version = version,
 		Verbosity = NuGetVerbosity.Detailed,
-		OutputDirectory = "./nupkg/",
+		OutputDirectory = "./",
 		BasePath = "./",
 	});	
 });
