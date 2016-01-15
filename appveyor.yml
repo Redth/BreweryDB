@@ -1,0 +1,18 @@
+version: 1.1.8.{build}
+os: Visual Studio 2015
+environment:
+  BREWERY_DB_API_KEY:
+    secure: gTJDGsz8SUQ9BmtFatbLU3zzT30isbHqHTHCHEu1YvTzC+8t69CRw5AaWZ02LaMZ
+build_script:
+- cmd: >-
+    nuget restore .\BreweryDB\BreweryDB.sln
+
+
+    powershell .\bootstrapper.ps1 -Target InjectKeys -Verbosity diagnostic
+
+    powershell .\bootstrapper.ps1 -Target Default -Verbosity diagnostic
+
+    powershell .\bootstrapper.ps1 -Target NuGetPack -Verbosity diagnostic
+artifacts:
+- path: '*.nupkg'
+  name: NuGet
