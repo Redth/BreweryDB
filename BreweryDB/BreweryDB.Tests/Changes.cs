@@ -16,7 +16,7 @@ namespace BreweryDB.Tests
     {
         private readonly BreweryDbClient client = new BreweryDbClient(Keys.ApplicationKey);
 
-        [Test()]
+        //[Test()]
         public async Task ById()
         {
             var response = await client.Changes.GetAll();
